@@ -1,17 +1,29 @@
 // data load via api
 
-const loadData = async () =>{
+const loadData = async (n) =>{
     toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url);
     const data = await res.json();
-    displayData(data.data.tools);
+    displayData(data.data.tools, n);
 }
 // display tha loaded data
-const displayData= (results) =>{
+const displayData= (results, dataLimit) =>{
     const infoContainer = document.getElementById('info_container');
-    // display 6 card result 
-    results = results.slice(0,6);
+    infoContainer.innerHTML ='';
+    const showbtn = document.getElementById('show_btn');
+
+    // display 6 card result and dispaly show more button
+
+    if(dataLimit){   
+         results = results.slice(0,6);
+         
+    }
+    // display all cards and hide the show more button
+    else{
+        showbtn.classList.add('d-none');
+    }
+
     for (const result of results){
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col');
@@ -46,15 +58,26 @@ const displayData= (results) =>{
 
         console.log(result);
     }
-    
+
+    const showAllBtn = document.getElementById('show_btn');
+    showAllBtn.innerHTML=`
+    <button id="show_all" onclick="loadData()" class="btn btn-danger fw-bolder text-white px-3 py-2 rounded-3">Show More </button>`
+
+    toggleLoader(false);
 
 } 
+
+// loader show and hide 
 const toggleLoader = isLoading => {
     const Loader = document.getElementById('loader');
     if(isLoading){
         Loader.classList.remove('d-none');
     }
+    else{
+        Loader.classList.add('d-none');
+    }
 }
 
-loadData();
-console.log("Connected");
+
+loadData(6);
+// console.log("Connected");
