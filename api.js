@@ -47,7 +47,9 @@ const displayData= (results, dataLimit) =>{
         <div class="row row-cols-2">
        <div class="col-10"><small class="text-muted " ><i class="fa-regular fa-calendar-days p-1"></i>${result.published_in}</small></div>
 
-        <div class="col-2"><button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button></div>
+        <div class="col-2"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></div>
+
+      
      
         </div>
 
