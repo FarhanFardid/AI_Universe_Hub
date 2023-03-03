@@ -1,6 +1,7 @@
 // data load via api
 
 const loadData = async () =>{
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url);
     const data = await res.json();
@@ -9,6 +10,8 @@ const loadData = async () =>{
 // display tha loaded data
 const displayData= (results) =>{
     const infoContainer = document.getElementById('info_container');
+    // display 6 card result 
+    results = results.slice(0,6);
     for (const result of results){
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col');
@@ -46,6 +49,12 @@ const displayData= (results) =>{
     
 
 } 
+const toggleLoader = isLoading => {
+    const Loader = document.getElementById('loader');
+    if(isLoading){
+        Loader.classList.remove('d-none');
+    }
+}
 
 loadData();
 console.log("Connected");
