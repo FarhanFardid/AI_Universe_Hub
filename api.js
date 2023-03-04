@@ -47,7 +47,7 @@ const displayData= (results, dataLimit) =>{
         <div class="row row-cols-2">
        <div class="col-10"><small class="text-muted " ><i class="fa-regular fa-calendar-days p-1"></i>${result.published_in}</small></div>
 
-        <div class="col-2"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></div>
+        <div class="col-2"><button  onclick ="loadInfoDetails('${result.id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></div>
 
       
      
@@ -80,6 +80,25 @@ const toggleLoader = isLoading => {
     }
 }
 
+const loadInfoDetails = id =>{
+    const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`
+    fetch(url)
+    .then(res=> res.json())
+    .then(data => displayInfo(data.data))
+}
 
+const displayInfo = info =>{
+    console.log(info);
+    const modalCard1 =document.getElementById('mCard-2');
+   modalCard1.innerHTML = `
+    <img src="${info.image_link[0]}" class="card-img-top" alt="image">
+    <div class="card-body">
+      <h5 class="card-title text-center">${info.input_output_examples? info.input_output_examples[0].input : 'Can you give any example?'}</h5>
+      <p class="card-text text-center">${info.input_output_examples? info.input_output_examples[0].output:'No!Not Yet!Working on..'}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    `
+
+}
 loadData(6);
 // console.log("Connected");
