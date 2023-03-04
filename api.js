@@ -149,17 +149,7 @@ const displayInfo = info =>{
       <p class="card-text text-center">${info.input_output_examples? info.input_output_examples[0].output:'No!Not Yet!Working on..'}</p>
      
     `
-    // const uList = document.getElementById('list');
-    // if(info.integrations !== 'null'){
-    //     for (let i= 0; i< info.integrations.length; i++){
-    //         uList.innerHTML =`
-    //         <li>${info.integrations[i]}</li>
-    //         `
-    //     }
-    // }
-    //     else{
-    //         uList.innerText = 'No Data Found';
-    //     }
+  
 
 }
 loadData(6);
