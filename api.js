@@ -91,6 +91,29 @@ const displayInfo = info =>{
     console.log(info);
     const modalCard1 =document.getElementById('mCard-1');
     const modalCard2 = document.getElementById('mCard-2');
+
+    modalCard1.innerHTML=`
+
+    <div class="card-body">
+      <h5 class="card-title fw-bolder">${info.description}</h5>
+      <div class="d-flex justify-content-around align-items-center p-2">
+      <div class="text-center fw-bold text-success p-1 fs-6">
+      <p>${info.pricing? info.pricing[0].price: "Free of cost/"}  ${info.pricing? info.pricing[0].plan : "Basic"}</p>
+      
+      </div>
+      <div class="text-center fw-bold text-warning p-1 fs-6">
+      <p>${info.pricing? info.pricing[1].price: "Free of cost/"} ${info.pricing? info.pricing[1].plan : "Pro"}</p>
+    
+      </div>
+      <div class="text-center fw-bold text-danger p-1 fs-6">
+      <p>${info.pricing? info.pricing[2].price: "Free of cost/"} ${info.pricing? info.pricing[2].plan : "Enterprise"}</p>
+    
+      </div>
+      </div>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    `
   
    modalCard2.innerHTML = `
     <div class="text-center "> <span class="position-absolute bg-danger  mt-2 me-4 w-50 rounded-3 text-center"> ${info.accuracy.score ? info.accuracy.score * 100 + '% accuracy' : ''}</span></div>
