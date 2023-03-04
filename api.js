@@ -89,14 +89,16 @@ const loadInfoDetails = id =>{
 
 const displayInfo = info =>{
     console.log(info);
-    const modalCard1 =document.getElementById('mCard-2');
-   modalCard1.innerHTML = `
+    const modalCard1 =document.getElementById('mCard-1');
+    const modalCard2 = document.getElementById('mCard-2');
+  
+   modalCard2.innerHTML = `
+    <div class="text-center "> <span class="position-absolute bg-danger  mt-2 me-4 w-50 rounded-3 text-center"> ${info.accuracy.score ? info.accuracy.score * 100 + '% accuracy' : ''}</span></div>
     <img src="${info.image_link[0]}" class="card-img-top" alt="image">
     <div class="card-body">
       <h5 class="card-title text-center">${info.input_output_examples? info.input_output_examples[0].input : 'Can you give any example?'}</h5>
       <p class="card-text text-center">${info.input_output_examples? info.input_output_examples[0].output:'No!Not Yet!Working on..'}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+     
     `
 
 }
