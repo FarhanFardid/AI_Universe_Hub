@@ -110,9 +110,32 @@ const displayInfo = info =>{
     
       </div>
       </div>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+
+     <div class="d-flex justify-content-between">
+       <div> 
+       <h5 class="fw-bolder">Features</h5>
+       <p>
+
+          <ul class="p-2">
+          <li>${info.features['1'].feature_name}</li>
+          <li>${info.features['2'].feature_name}</li>
+          <li>${info.features['3'] ? info.features['3'].feature_name: 'ChatBox'} </li>
+          </ul>
+       </p>
+        </div>
+        <div> 
+        <h5 class="fw-bolder">Integrations</h5>
+        <p>
+           <ul class="p-2">
+           <li>${info.integrations ? info.integrations[0]: 'No data found' }</li>
+           <li>${info.integrations[1] ? info.integrations[1]: 'No data found'}</li>
+           <li>${info.integrations[2] ? info.integrations[2]: 'No data found'} </li>
+           </ul>
+        </p>
+         </div>
+     
+     </div>
+      
     `
   
    modalCard2.innerHTML = `
