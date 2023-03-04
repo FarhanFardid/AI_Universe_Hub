@@ -91,6 +91,8 @@ const displayInfo = info =>{
     console.log(info);
     const modalCard1 =document.getElementById('mCard-1');
     const modalCard2 = document.getElementById('mCard-2');
+   
+     
 
     modalCard1.innerHTML=`
 
@@ -119,17 +121,18 @@ const displayInfo = info =>{
           <ul class="p-2">
           <li>${info.features['1'].feature_name}</li>
           <li>${info.features['2'].feature_name}</li>
-          <li>${info.features['3'] ? info.features['3'].feature_name: 'ChatBox'} </li>
+          <li>${info.features['3'] ? info.features['3'].feature_name : 'ChatBox'} </li>
           </ul>
        </p>
         </div>
         <div> 
         <h5 class="fw-bolder">Integrations</h5>
         <p>
-           <ul class="p-2">
-           <li>${info.integrations ? info.integrations[0]: 'No data found' }</li>
-           <li>${info.integrations[1] ? info.integrations[1]: 'No data found'}</li>
-           <li>${info.integrations[2] ? info.integrations[2]: 'No data found'} </li>
+           <ul class="p-2" id="list">
+           <li>${info.integrations !== null ? info.integrations[0] !== undefined ? info.integrations[0] : 'No data found' : 'No data found' }</li>
+           <li>${info.integrations !== null ? info.integrations[1] !== undefined ? info.integrations[1] : 'No data found' : 'No data found' }</li>
+          
+         
            </ul>
         </p>
          </div>
@@ -146,6 +149,17 @@ const displayInfo = info =>{
       <p class="card-text text-center">${info.input_output_examples? info.input_output_examples[0].output:'No!Not Yet!Working on..'}</p>
      
     `
+    // const uList = document.getElementById('list');
+    // if(info.integrations !== 'null'){
+    //     for (let i= 0; i< info.integrations.length; i++){
+    //         uList.innerHTML =`
+    //         <li>${info.integrations[i]}</li>
+    //         `
+    //     }
+    // }
+    //     else{
+    //         uList.innerText = 'No Data Found';
+    //     }
 
 }
 loadData(6);
