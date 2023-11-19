@@ -16,7 +16,7 @@ const displayData= (results, dataLimit) =>{
     // display 6 card result and dispaly show more button
 
     if(dataLimit){   
-         results = results.slice(0,6);
+         results = results.slice(0,5);
          
     }
     // display all cards and hide the show more button
@@ -29,7 +29,7 @@ const displayData= (results, dataLimit) =>{
         cardDiv.classList.add('col');
         cardDiv.innerHTML =`
         <div class="card h-100">
-        <img src="${result.image}" class="card-img-top p-4 border rounded-3" alt="...">
+        <img src=${result.image} class="card-img-top p-4 border rounded-3" alt="...">
         <div class="card-body">
         <h5 class="card-title">Features</h5>
           <p class="card-text">
